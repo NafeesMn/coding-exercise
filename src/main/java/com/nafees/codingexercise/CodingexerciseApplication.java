@@ -31,22 +31,10 @@ public class CodingexerciseApplication {
 	@Profile("!test")
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 		return args -> {
-			Post[] posts = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", Post[].class);
-
-			// Display all posts
-			for (Post post : posts){
-				log.info("{\n" + displayAllPosts(post) + "}\n");
-			}
-
-			// Change the format of the JSON response
-			for (Post post : posts){
-				post = new Post(post.userId(), post.id(), post.title(), post.body(), findTitleLength(post));
-				// Diplay the length of each of the titles
-				log.info("Length of Post " + post.id() + ": " + post.titleLength());
-			}
+			NewPost[] posts = restTemplate.getForObject("https://jsonplaceholder.typicode.com/posts", NewPost[].class);
 
 			// Find the post with the longest title
-			Post postWithLongestTitle = findPostWithLongestTitle(posts);
+			NewPost postWithLongestTitle = findPostWithLongestTitle(posts);
 
 			// Display the title and body of the longest title
 			if (postWithLongestTitle != null) {
@@ -63,34 +51,18 @@ public class CodingexerciseApplication {
 		};
 	}
 
-	public static Post findPostWithLongestTitle(Post[] posts) {
+	public static NewPost findPostWithLongestTitle(NewPost[] posts) {
 		if (posts == null || posts.length == 0)
 			return null;
-		Post postWithLongestTitle = posts[0];
-		for(Post post : posts){
+		NewPost postWithLongestTitle = posts[0];
+		for(NewPost post : posts){
 			if(post.title().length() > postWithLongestTitle.title().length())
 				postWithLongestTitle = post;
 		}
 		return postWithLongestTitle;
 	}
 
-	public static String displayAllPosts(Post posts){
-		Long userId, id;
-		String  title, body;
-
-		userId = posts.userId();
-		id = posts.id();
-		title = posts.title();
-		body = posts.body();
-
-		return 
-		"Post "+ id 
-		+ "\nUser ID: " + userId
-		+ "\nTitle: " + title
-		+ "\nBody: " + body; 
-	}
-
-	public static int findTitleLength(Post post){
+	public static int findTitleLength(NewPost post){
 		return post.title().length();
 	}
 }
