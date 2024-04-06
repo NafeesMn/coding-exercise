@@ -20,15 +20,40 @@ Maven (version 3.2.4 or higher)
      ```
      ./mvnw clean package
      ```
+## **After the server has started, you may access the following endpoints: ** <br/>
+1. To get all posts:
+     ```
+     http://localhost:8080/posts
+     ```
+2. To get the post with the longest title:
+     ```
+     http://localhost:8080/longestTitle
+     ```
+3. To get all post with a new field titleLength:
+     ```
+     http://localhost:8080/postsTitleLength
+     ```
+
 
 **Output Screenshots** <br/>
 1. Display all posts
-![displayAllPosts](https://github.com/NafeesMn/coding-exercise/assets/145410311/0cd40106-975f-4584-86d4-d3ce4743fa8d)
+   
+![displayAllPosts](https://github.com/NafeesMn/coding-exercise/assets/145410311/f9e10b1a-77e8-4fe6-88a9-00c784d19850)
 
-2. Display title length for all posts
-![displayAllTitleLength](https://github.com/NafeesMn/coding-exercise/assets/145410311/9b916dc4-fe35-4f11-93ff-f56964318840)
-
-3. Display longest post title
+3. Display the post with the longest title
+   
 ![findLongestTitle](https://github.com/NafeesMn/coding-exercise/assets/145410311/0c877ba2-a284-40d8-834c-86f05b268274)
+
+4. Display all post with a new field titleLength
+   
+![displayAllTitleLength](https://github.com/NafeesMn/coding-exercise/assets/145410311/9b5b8a22-3ae3-480a-b6af-72443cb1b4d9)
+
+5. Unit test result for the API Controller
+
+![testApiControllerTest](https://github.com/NafeesMn/coding-exercise/assets/145410311/37a5c960-10de-4c74-9b0c-2fc89f841ad1)
+
+6. Unit test result for the main class
+![testMainClass](https://github.com/NafeesMn/coding-exercise/assets/145410311/02ae3aef-ab3e-4ce0-8ea5-b3baa0dffca9)
+
 
 
